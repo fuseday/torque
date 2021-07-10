@@ -1,2 +1,2 @@
 # torque
-A library to make frontent communication with backend, amazingly easy.
+A library to make frontend communication with backend, amazingly easy.

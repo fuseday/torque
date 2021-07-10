@@ -1,0 +1,60 @@
+{
+    "name": "fuseday/torque",
+    "description": "A library to make frontend communication with backend, amazingly easy.",
+    "keywords": [
+        "torque",
+        "inertia",
+        "laravel",
+        "vue",
+        "full stak components"
+    ],
+    "homepage": "https://github.com/fuseday/torque",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Joao Patricio",
+            "email": "ijpatricio@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^8.0",
+        "illuminate/support": "^8.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^6.17",
+        "phpunit/phpunit": "^9.5.4",
+        "spatie/laravel-ray": "^1.9"
+    },
+    "autoload": {
+        "psr-4": {
+            "Fuseday\\Torque\\": "src"
+        },
+        "files": [
+            "helpers/helpers.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Fuseday\\Torque\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit --colors=always",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Fuseday\\Torque\\TorqueServiceProvider"
+            ],
+            "aliases": {
+                "Torque": "Fuseday\\Torque\\TorqueFacade"
+            }
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
