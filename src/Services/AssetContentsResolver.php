@@ -9,7 +9,7 @@ use Illuminate\Support\Str;
 class AssetContentsResolver
 {
     /**
-     * The directory of Plug's assets.
+     * The assets directory.
      */
     private const ASSET_DIRECTORY = 'vendor/fuseday/torque/public';
 

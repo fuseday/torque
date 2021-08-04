@@ -18,7 +18,6 @@ class AssetUrlResolver
     private UrlGenerator $router;
 
     /**
-     * PlugAssetResolver constructor.
      *
      * @param \Illuminate\Contracts\Routing\UrlGenerator $router
      *
