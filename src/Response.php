@@ -85,9 +85,9 @@ class Response
         return $this;
     }
 
-    public function event($event)
+    public function event($name, $payload)
     {
-        $this->events->push($event);
+        $this->events->push(['name' => $name, 'payload' => $payload, 'type' => 'BusEvent']);
         return $this;
     }
 
