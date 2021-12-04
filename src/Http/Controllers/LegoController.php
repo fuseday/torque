@@ -2,6 +2,7 @@
 
 namespace Fuseday\Torque\Http\Controllers;
 
+use DateTime;
 use Illuminate\Contracts\Container\BindingResolutionException;
 use Illuminate\Contracts\Filesystem\FileNotFoundException;
 use Illuminate\Http\Response;
@@ -71,6 +72,8 @@ class LegoController extends Controller
         $headers = [];
         $headers['content-type'] = $contentType;
 
-        return response()->make($content, 200, $headers);
+        return response()
+            ->make($content, 200, $headers)
+            ->setLastModified(DateTime::createFromFormat('U', (string) filemtime($distFile)));
     }
 }
