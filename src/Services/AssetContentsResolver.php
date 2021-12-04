@@ -39,21 +39,17 @@ class AssetContentsResolver
      * @return string
      * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
      */
-    public function resolve(string $kind, string $name): string
+    public function resolve(string $vendor, string $package, string $distFile): string
     {
-        if(
-            Str::contains(
-                app()->make(Router::class)->getCurrentRoute()->uri(),
-                'fonts/vendor'
-            )
-        ) {
-            $assetDirectory = self::ASSET_DIRECTORY . '/fonts/vendor';
-        }
-        else {
-            $assetDirectory = self::ASSET_DIRECTORY;
-        }
+        $path = base_path(
+            'vendor'.DIRECTORY_SEPARATOR.
+            $vendor.DIRECTORY_SEPARATOR.
+            $package.DIRECTORY_SEPARATOR.
+            'dist'.DIRECTORY_SEPARATOR.
+            $distFile);
 
-        $path = base_path($assetDirectory.DIRECTORY_SEPARATOR.$kind.DIRECTORY_SEPARATOR.$name);
+        // TODO scan mix-manifest for safety!
+
         return $this->files->get($path);
     }
 }
